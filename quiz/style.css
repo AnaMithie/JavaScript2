@@ -16,22 +16,28 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url(img/esqueletinhos.gif);
+    background-repeat: none;
+    background-size: cover;
+   
+    
 }
-
 /* Container principal do quiz */
 .container {
-    background-color: white;
+    opacity: 90%;
+    background-color: rgb(51, 28, 28);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     width: 90%;
+    color: white
 }
 
 /* Estilo do título */
 h1 {
     text-align: center;
-    color: #333;
+    color: #ffffff;
     margin-bottom: 2rem;
 }
 
@@ -41,7 +47,7 @@ h1 {
     justify-content: space-around;
     margin-bottom: 2rem;
     padding: 1rem;
-    background-color: #f8f8f8;
+    background-color: #5f1d1d;
     border-radius: 5px;
     font-size: 1.1rem;
 }
@@ -53,19 +59,20 @@ h1 {
 
 /* Cor do número de acertos */
 #acertos {
-    color: #5d56bd;
+    color: #00a71c;
 }
 
 /* Cor do número de erros */
 #erros {
-    color: #ff4444;
+    color: #d26efa;
 }
 
 /* Estilo da pergunta */
 #pergunta {
+
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
-    color: #444;
+    color: #ffffff;
 }
 
 /* Estilo das opções de resposta */
@@ -74,11 +81,11 @@ h1 {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    background-color: #f8f8f8;
-    border: 2px solid #ddd;
+    background-color: #770505;
+    border: 2px solid #8f0000;
     border-radius: 5px;
     cursor: pointer;
-    color: black;   
+    color: rgb(255, 255, 255);   
     transition: all 0.3s;
 }
 
@@ -100,7 +107,7 @@ button {
     width: 100%;
     padding: 10px;
     margin-top: 1rem;
-    background-color: #000000;
+    background-color: #a70000;
     color: white;
     border: none;
     border-radius: 5px;

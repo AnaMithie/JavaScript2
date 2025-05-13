@@ -1,22 +1,56 @@
 const perguntas = [
-    {pergunta: "Qual o nome da nossa escola?",
-        opcoes: ["Luis Eulalio de Bueno Vidigal Filho", "Luis Eulalio",
-        "Luis de Bueno", "Luis Eulalio de Vidigal"],
+    {
+        pergunta: "Qual é o maior órgão do corpo humano?",
+        opcoes: ["Pele", "Fígado", "Estômago", "Pulmão"],
         correta: 0
-        
     },
     {
-        pergunta: "Qual o nome do nosso curso?",
-        opcoes: ["Analise e Desenvolvimento de Sistemas", "Sistemas de informação", "Desenvolvimento de sistemas", "Ciência da Computação"],
+        pergunta: "Onde ocorre a maior parte da digestão dos alimentos?",
+        opcoes: ["Intestino delgado", "Esôfago", "Boca", "Intestino grosso"],
+        correta: 0
+    },
+    {
+        pergunta: "Qual é a função principal dos pulmões?",
+        opcoes: ["Filtrar o sangue", "Bombear o sangue", "Produzir hormônios", "Trocar oxigênio e gás carbônico"],
+        correta: 3
+    },
+    {
+        pergunta: "Qual é o nome do osso da coxa, o maior do corpo?",
+        opcoes: ["Tíbia","Fêmur", "Úmero", "Rádio"],
+        correta: 1
+    },
+    {
+        pergunta: "Qual órgão é responsável por bombear o sangue para todo o corpo?",
+        opcoes: ["Coração", "Pulmão", "Estômago", "Cérebro"],
+        correta: 0
+    },
+    {
+        pergunta: "Qual sistema é responsável pelos movimentos do corpo?",
+        opcoes: [ "Sistema digestório", "Sistema circulatório","Sistema muscular", "Sistema respiratório"],
         correta: 2
     },
     {
-        pergunta: "Em que ano foi fundada a escola?",
-        opcoes: ["1999", "1942", "1985", "1970"],
-        correta: 1
+        pergunta: "Quantos rins uma pessoa saudável normalmente possui?",
+        opcoes: ["1","4", "2", "3"],
+        correta: 2
+    },
+    {
+        pergunta: "Qual é a principal função do cérebro?",
+        opcoes: ["Controlar as funções do corpo", "Fazer a digestão", "Bombear o sangue", "Filtrar impurezas"],
+        correta: 0
+    },
+    {
+        pergunta: "Qual parte do corpo é responsável por transportar o oxigênio no sangue?",
+        opcoes: [ "Plasma", "Plaquetas", "Hemoglobina", "Linfócitos"],
+        correta: 2
+    },
+    {
+        pergunta: "Onde se localiza o estômago?",
+        opcoes: ["Abdômen", "Tórax", "Crânio", "Pelve"],
+        correta: 0
     }
-    
-]
+];
+
 
 let perguntaAtual = 0
 let pontuacao = 0
