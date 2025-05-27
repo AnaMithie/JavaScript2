@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contagem</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="caixa">
+    <div>
+      <h1>Contagem regressiva para o CARNAVAL 04/03/2026</h1>
+      <br>
+      <div id="contador">
+        <p id="tempo"></p>
+      </div>
+      <div class="progress-bar">
+        <div class="progress">
+          <span class="progress-text"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <audio id="musicaFinal">
+    <source src="audio/carnaval.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <script>
+    const audio = document.getElementById("musicaFinal");
+
+    const dataInicio = new Date(2025, 2, 4);
+    const dataAlvo = new Date(2026, 2, 4);  
+
+    function atualizarContador() {
+      const agora = new Date();
+      const diferenca = dataAlvo - agora;
+
+      if (diferenca < 0) {
+        document.getElementById("contador").innerHTML = "<h2>Boa Fulía!</h2>";
+        audio.play();
+        clearInterval(intervalo);
+        document.querySelector('.progress').style.width = "100%";
+        document.querySelector('.progress-text').textContent = "100%";
+        return;
+      }
+
+      const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+      document.getElementById("tempo").textContent =
+        "Dias: " + dias +
+        " | Horas: " + horas +
+        " | Minutos: " + minutos +
+        " | Segundos: " + segundos;
+
+      // Barra de progresso
+      const progresso = document.querySelector('.progress');
+      const progressoTexto = document.querySelector('.progress-text');
+
+      const totalTempo = dataAlvo - dataInicio;
+      const tempoDecorrido = agora - dataInicio;
+
+      const porcentagem = Math.min((tempoDecorrido / totalTempo) * 100, 100);
+
+      progresso.style.width = porcentagem + "%";
+      progressoTexto.textContent = Math.floor(porcentagem) + "%";
+    }
+
+    atualizarContador();
+    const intervalo = setInterval(atualizarContador, 1000);
+  </script>
+</body>
+</html>
