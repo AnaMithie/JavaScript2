@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartões Interativos</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f7f7f7;
+    }
+
+    .grade {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .container {
+      width: 150px;
+      height: 100px;
+      perspective: 1000px;
+    }
+
+    .cartao {
+      width: 110%;
+      height: 110%;
+      position: relative;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+
+    .cartao.virado {
+      transform: rotateY(180deg);
+    }
+
+    .frente, .verso {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      backface-visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      color: white;
+      overflow: hidden;
+    }
+
+    .frente img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    .verso {
+      background-color: rgb(205, 205, 205);
+      transform: rotateY(180deg);
+      font-size: small;
+      align-items: center;
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      color: #000000;
+    }
+
+    .cor1 .frente { background-color: #e74c3c; }
+    .cor2 .frente { background-color: #3498db; }
+    .cor3 .frente { background-color: #2ecc71; }
+    .cor4 .frente { background-color: #f1c40f; }
+    .cor5 .frente { background-color: #9b59b6; }
+    .cor6 .frente { background-color: #1abc9c; }
+    .cor7 .frente { background-color: #e67e22; }
+    .cor8 .frente { background-color: #34495e; }
+    .cor9 .frente { background-color: #ff69b4; }
+    .cor10 .frente { background-color: #7f8c8d; }
+  </style>
+</head>
+<body>
+  <div class="grade">
+    <div class="container"><div class="cartao cor1"><div class="frente"><img src="img/Design sem nome (12).png" alt="Imagem 1"></div><div class="verso">Mãe, seu amor é meu maior presente. Obrigado por tudo! Feliz Dia das Mães!</div></div></div>
+    <div class="container"><div class="cartao cor2"><div class="frente"><img src="img/Design sem nome (13).png" alt="Imagem 2"></div><div class="verso">Hoje é o seu dia! Que a vida te abrace com saúde, alegrias e muitos sonhos realizados. Feliz aniversário!</div></div></div>
+    <div class="container"><div class="cartao cor3"><div class="frente"><img src="img/Design sem nome (14).png" alt="Imagem 3"></div><div class="verso">Que o novo ano traga novos sonhos, novas conquistas e infinitas bênçãos. Feliz Ano Novo!</div></div></div>
+    <div class="container"><div class="cartao cor4"><div class="frente"><img src="img/Design sem nome (15).png" alt="Imagem 4"></div><div class="verso">Errei, mas aprendi. Me desculpe, de coração. Você é importante para mim.</div></div></div>
+    <div class="container"><div class="cartao cor5"><div class="frente"><img src="img/Design sem nome (16).png" alt="Imagem 5"></div><div class="verso">Pula fogueira, acende a alegria! Que sua Festa Junina seja recheada de amor, diversão e quentão!</div></div></div>
+    <div class="container"><div class="cartao cor6"><div class="frente"><img src="img/Design sem nome (17).png" alt="Imagem 6"></div><div class="verso">Não desista! Grandes jornadas começam com pequenos passos. Você é capaz!</div></div></div>
+    <div class="container"><div class="cartao cor7"><div class="frente"><img src="img/Design sem nome (18).png" alt="Imagem 7"></div><div class="verso">Amar você é meu maior presente diário. Feliz Dia dos Namorados, meu amor!</div></div></div>
+    <div class="container"><div class="cartao cor8"><div class="frente"><img src="img/Design sem nome (19).png" alt="Imagem 8"></div><div class="verso">Que o espírito do Natal encha seu coração de paz, amor e esperança. Boas festas!</div></div></div>
+    <div class="container"><div class="cartao cor9"><div class="frente"><img src="img/Design sem nome (20).png" alt="Imagem 9"></div><div class="verso">Que a Páscoa renove nossa fé, esperança e amor! Feliz Páscoa com muito carinho!</div></div></div>
+    <div class="container"><div class="cartao cor10"><div class="frente"><img src="img/Design sem nome (21).png" alt="Imagem 10"></div><div class="verso">Para quem ensina com dedicação e transforma vidas com sabedoria: feliz Dia do Professor!</div></div></div>
+  </div>
+
+  <script>
+    const cartoes = document.querySelectorAll(".cartao");
+    cartoes.forEach(cartao => {
+      cartao.addEventListener('click', () => {
+        cartao.classList.toggle("virado");
+      });
+    });
+  </script>
+</body>
+</html>
