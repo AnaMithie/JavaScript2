@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jukebox Visual</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.5s, background-image 0.5s;
+            background-size: cover;
+            background-position: center;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .imagem img {
+            margin-top: 20px;
+            width: 300px;
+            display: none;
+            border-radius: 20px;
+        }
+        .musica-atual {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Jukebox Visual </h1>
+    <p>Escolha uma emoção e ouça uma música que combine!</p>
+
+    <button onclick="tocar('alegria')">Alegria</button>
+    <button onclick="tocar('tristeza')">Tristeza</button>
+    <button onclick="tocar('aventura')">Aventura</button>
+    <button onclick="tocar('amor')">Amor</button>
+    <button onclick="tocar('misterio')">Mistério</button>
+    <button onclick="tocar('calma')">Calma</button>
+    <button onclick="tocar('animacao')">Animação</button>
+    <button onclick="tocar('suspense')">Suspense</button>
+    <button onclick="parar()">Parar</button>
+
+    <div class="imagem">
+        <img src="" alt="Imagem tema" id="foto">
+    </div>
+
+    <div class="musica-atual" id="musicaAtual"></div>
+
+    <audio src="" id="audio" controls style="margin-top: 20px; display: none;"></audio>
+
+    <script>
+        function tocar(tipo) {
+            const audio = document.getElementById("audio");
+            const foto = document.getElementById("foto");
+            const musicaAtual = document.getElementById("musicaAtual");
+
+            let musica = "";
+            let imagem = "";
+            let cor = "";
+
+            switch (tipo) {
+                case "alegria":
+                    musica = "audio/alegria.mp3";
+                    cor = "#ffeb3b";
+                    imagem = "https://laboratoriocella.com.br/wp-content/uploads/2024/04/Cella-felicidade-1.jpg";
+                    break;
+                case "tristeza":
+                    musica = "audio/tristeza.mp3";
+                    imagem = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoDMJ3cznw0Mw8Rp8mjqnmGoJZeWq5Rj0eNA&s";
+                    cor = "#607d8b";
+                    break;
+                case "aventura":
+                    musica = "audio/aventura.mp3";
+                    imagem = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnheshnU43iClomKgaOj9ICBRgkDAyw_HmnQ&s";
+                    cor = "#90d224";
+                    break;
+                case "amor":
+                    musica = "audio/romance.mp3";
+                    imagem = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5EzCxT1telDeW3YxTndSNIgqViN6CJlQuRg&s";
+                    cor = "#d2246d";
+                    break;
+                case "misterio":
+                    musica = "audio/miste.mp3";
+                    imagem = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaZr8qWcnxixe_XFx5bskPUI5-PhFJTrg7SA&s";
+                    cor = "#5e5e5e";
+                    break;
+                case "calma":
+                    musica = "audio/calm.mp3";
+                    imagem = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReioEb6Bb8d3Wn3waUzt7JhuSjA7MiS58bLQ&s";
+                    cor = "#007dcc";
+                    break;
+                case "animacao":
+                    musica = "audio/animacao.mp3";
+                    imagem = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxz5VDFwMCUvFGSbv7QM6xoOogPHF8wA87DAM7svdn-Qcrynu1NlMTRdG3v5nzpW3PH1c&usqp=CAU";
+                    cor = "#ff7b6e";
+                    break;
+                case "suspense":
+                    musica = "audio/sus.mp3";
+                    imagem = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbU8NPGP7Z5kSKqW9kSJMHpXO_dFITHkdTWw&s";
+                    cor = "#9c0e00";
+                    break;
+            }
+
+            document.body.style.backgroundColor = cor;
+            document.body.style.backgroundImage = "";
+
+            foto.src = imagem;
+            foto.style.display = "block";
+
+            musicaAtual.innerText = ` Tocando: ${tipo}`;
+
+            audio.src = musica;
+            audio.style.display = "block";
+            audio.play();
+        }
+
+        function parar() {
+            const audio = document.getElementById("audio");
+            const foto = document.getElementById("foto");
+            const musicaAtual = document.getElementById("musicaAtual");
+
+            audio.pause();
+            audio.currentTime = 0;
+            audio.style.display = "none";
+
+            foto.style.display = "none";
+
+            document.body.style.backgroundColor = "#fff";
+            document.body.style.backgroundImage = "";
+
+            musicaAtual.innerText = "";
+        }
+    </script>
+</body>
+</html>
